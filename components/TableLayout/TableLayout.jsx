@@ -3,9 +3,9 @@ import { DataGrid } from "@material-ui/data-grid";
 import { getDataByDate } from "../../services/covidService";
 
 export const TableLayout = (props) => {
-  const { covidData } = props;
+  const { covidData , rows} = props;
 
-  const rows = getDataByDate(new Date().getTime());
+ 
   const columns = [
     { field: "date", headerName: "Date", width: 150 },
     {

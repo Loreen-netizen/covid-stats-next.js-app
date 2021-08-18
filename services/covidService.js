@@ -17,7 +17,10 @@ export const getDataByDate = (timestamp) => {
 
   const dayMonth = getDayMonthFromUnixTimestamp(timestamp);
 
-  const dateIndex = findIndexForDayMonth(dayMonth, dates);
+  let dateIndex =
+    findIndexForDayMonth(dayMonth, dates) === -1
+      ? dates.length - 1
+      : findIndexForDayMonth(dayMonth, dates);
 
   const gauteng = {
     id: 1,
