@@ -11,11 +11,9 @@ export default function Home(data) {
         <title> Covid-Stats</title>
       </Head>
       <h1> Covid-19 Statistics</h1>
-      <Grid container xs={12}>
-        <Grid item>
+     
           <Table covidData={covidData}/>
-        </Grid>
-      </Grid>
+      
     </>
   );
 }
