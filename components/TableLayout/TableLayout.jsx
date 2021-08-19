@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { DataGrid } from "@material-ui/data-grid";
 
 export const TableLayout = (props) => {
@@ -37,7 +36,11 @@ export const TableLayout = (props) => {
 
   return (
     <div style={{ height: 400, width: "100%" }}>
-      <DataGrid columns={columns} rows={rows}  />
+      <DataGrid
+        columns={columns}
+        rows={rows}
+        pageSize={12}
+      />
     </div>
   );
 };

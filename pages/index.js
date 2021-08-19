@@ -4,6 +4,7 @@ import Table from "../components/TableLayout/TableLayout";
 import moment from "moment";
 import { rawData } from "../data/covidData";
 import { getDataByDate } from "../services/covidService";
+import ProvincialStatsCards from "../components/ProvincialStatsCards";
 
 export default function Home(data) {
   const covidData = data.data;
@@ -20,7 +21,7 @@ export default function Home(data) {
   useEffect(() => {
     const timeStamp = new Date(selectedDate).getTime();
     const tempRows = getDataByDate(timeStamp);
-    
+
     setRows(tempRows);
   }, [selectedDate]);
 
@@ -30,6 +31,10 @@ export default function Home(data) {
         <title> Covid-Stats</title>
       </Head>
       <h1> Covid-19 Statistics</h1>
+
+      <ProvincialStatsCards />
+
+      <span></span>
       <div>
         <label htmlFor="datePicker">Select Date</label>
         <input
@@ -45,11 +50,11 @@ export default function Home(data) {
 }
 
 export const getStaticProps = async () => {
-  const response = await fetch("https://corona-stats.mobi/api/json.2.0.php?key=UTSiraH8NBz3JblhOcVI")
-  // const data = rawData;
-  
+  // const response = await fetch("https://corona-stats.mobi/api/json.2.0.php?key=UTSiraH8NBz3JblhOcVI")
+  const data = rawData;
+
   // );
-  const data = await response.json();
+  // const data = await response.json();
 
   return {
     props: {

@@ -13,6 +13,9 @@ export const getDataByDate = (timestamp) => {
   const ec = rsa["EC"];
   const fs = rsa["FS"];
   const mp = rsa["MP"];
+  const lp = rsa["LP"];
+  const nw = rsa["NW"];
+  const nc = rsa["NC"];
   const dates = rsa["Dates"];
 
   const dayMonth = getDayMonthFromUnixTimestamp(timestamp);
@@ -64,13 +67,41 @@ export const getDataByDate = (timestamp) => {
     deaths: fs["Deaths"][dateIndex],
   };
   const mpumalanga = {
-    id: 5,
+    id: 6,
     date: rsa["Dates"][dateIndex],
     province: "MP",
     cases: mp["Cases"][dateIndex],
     recoveries: mp["Recoveries"][dateIndex],
     deaths: mp["Deaths"][dateIndex],
   };
+
+   const limpopo = {
+     id: 7,
+     date: rsa["Dates"][dateIndex],
+     province: "LP",
+     cases: lp["Cases"][dateIndex],
+     recoveries: lp["Recoveries"][dateIndex],
+     deaths: lp["Deaths"][dateIndex],
+   };
+
+   const northWest = {
+     id: 8,
+     date: rsa["Dates"][dateIndex],
+     province: "NW",
+     cases: nw["Cases"][dateIndex],
+     recoveries: nw["Recoveries"][dateIndex],
+     deaths: nw["Deaths"][dateIndex],
+   };
+   const northenCape = {
+     id: 9,
+     date: rsa["Dates"][dateIndex],
+     province: "NC",
+     cases: nc["Cases"][dateIndex],
+     recoveries: nc["Recoveries"][dateIndex],
+     deaths: nc["Deaths"][dateIndex],
+   };
+
+
   return [
     gauteng,
     westernCape,
@@ -78,6 +109,9 @@ export const getDataByDate = (timestamp) => {
     easternCape,
     freeState,
     mpumalanga,
+    limpopo,
+    northWest,
+    northenCape,
   ];
 };
 
