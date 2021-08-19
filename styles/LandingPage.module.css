@@ -4,3 +4,20 @@
   padding-left: 1rem;
   font-weight: 200;
 }
+
+.inputLabelText {
+  margin: 1rem 0 -1rem 0;
+  font-size: 1rem;
+  padding-left: 1rem;
+  font-weight:lighter;
+}
+
+.inputInnerText {
+      font-size: 12px;
+    padding-left: 1rem;
+    font-weight: 100;
+}
+
+.inputDiv{
+  margin: -1rem 0rem 2rem 0rem;
+}

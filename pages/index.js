@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
-import Head from "next/head";
-import Table from "../components/TableLayout/TableLayout";
 import moment from "moment";
+import Head from "next/head";
 import { rawData } from "../data/covidData";
+import Table from "../components/TableLayout/TableLayout";
 import { getDataByDate } from "../services/covidService";
-import ProvincialStatsCards from "../components/ProvincialStatsCards";
+import NationalStatisticsCard from "../components/NationalStatisticsCard/NationalStatisticsCard";
 import styles from "../styles/LandingPage.module.css";
+
+export const getStaticProps = () => {
+  const data = rawData;
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
 
 export default function Home(data) {
   const covidData = data.data;
@@ -21,9 +31,9 @@ export default function Home(data) {
 
   useEffect(() => {
     const timeStamp = new Date(selectedDate).getTime();
-    const tempRows = getDataByDate(timeStamp);
+    const rowsData = getDataByDate(timeStamp);
 
-    setRows(tempRows);
+    setRows(rowsData);
   }, [selectedDate]);
 
   return (
@@ -33,16 +43,18 @@ export default function Home(data) {
       </Head>
       <h4 className={styles.titleText}> Covid-19 Statistics</h4>
 
-      <ProvincialStatsCards />
+      <NationalStatisticsCard/>
 
-      <span></span>
-      <div>
-        <label htmlFor="datePicker">Select Date</label>
+      <div className={styles.inputDiv}>
+        <label htmlFor="datePicker" className={styles.inputLabelText}>
+          Select Date
+        </label>
         <input
           type="date"
           id="datePicker"
           value={selectedDate}
           onChange={(e) => handleDateSelection(e)}
+          className={styles.inputInnerText}
         />
       </div>
       <Table covidData={covidData} rows={rows} />
@@ -50,12 +62,3 @@ export default function Home(data) {
   );
 }
 
-export const getStaticProps = async () => {
-  const data = rawData;
-
-  return {
-    props: {
-      data,
-    },
-  };
-};

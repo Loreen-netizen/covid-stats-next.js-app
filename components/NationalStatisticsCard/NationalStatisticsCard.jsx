@@ -1,8 +1,8 @@
 import { Grow } from "@material-ui/core";
-import styles from "../../styles/ProvincialStatsCards.module.css";
+import styles from "../../styles/NationalStatisticsCard.module.css";
 import { nationalCasesToday } from "../../services/covidService";
 
-export const ProvincialStatsCards = () => {
+export const NationalStatisticsCard = () => {
   const nationalCasesCount = nationalCasesToday();
 
   return (
@@ -19,4 +19,4 @@ export const ProvincialStatsCards = () => {
   );
 };
 
-export default ProvincialStatsCards;
+export default NationalStatisticsCard;
