@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { DataGrid } from "@material-ui/data-grid";
-import { getDataByDate } from "../../services/covidService";
 
 export const TableLayout = (props) => {
   const { covidData , rows} = props;
@@ -38,7 +37,7 @@ export const TableLayout = (props) => {
 
   return (
     <div style={{ height: 400, width: "100%" }}>
-      <DataGrid columns={columns} rows={rows} pageSize={5} />
+      <DataGrid columns={columns} rows={rows}  />
     </div>
   );
 };
