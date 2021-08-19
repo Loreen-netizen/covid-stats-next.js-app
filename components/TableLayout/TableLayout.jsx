@@ -1,5 +1,5 @@
 import { DataGrid } from "@material-ui/data-grid";
-import { columnData } from "../../services/covidService";
+import { columnData } from "../../utils/columnsUtils";
 
 export const TableLayout = (props) => {
   const { rows } = props;
@@ -7,7 +7,7 @@ export const TableLayout = (props) => {
 
   return (
     <div style={{ height: 400, width: "100%" }}>
-      <DataGrid columns={columns} rows={rows} pageSize={12} />
+      <DataGrid columns={columns} rows={rows} pageSize={5} />
     </div>
   );
 };
