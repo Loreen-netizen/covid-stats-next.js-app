@@ -16,7 +16,6 @@ export const getStaticProps = () => {
   };
 };
 
-
 export default function Home(data) {
   const covidData = data.data;
 
@@ -43,7 +42,7 @@ export default function Home(data) {
       </Head>
       <h4 className={styles.titleText}> Covid-19 Statistics</h4>
 
-      <NationalStatisticsCard/>
+      <NationalStatisticsCard />
 
       <div className={styles.inputDiv}>
         <label htmlFor="datePicker" className={styles.inputLabelText}>
@@ -57,8 +56,7 @@ export default function Home(data) {
           className={styles.inputInnerText}
         />
       </div>
-      <Table covidData={covidData} rows={rows} />
+      <Table rows={rows} />
     </>
   );
 }
-

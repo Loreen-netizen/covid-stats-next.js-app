@@ -24,8 +24,8 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: red;
-  border-color: goldenrod;
+  color: rgb(0, 10, 145);
+  border-color: rgb(57, 95, 4);
 }
 
 .cardh4 {
