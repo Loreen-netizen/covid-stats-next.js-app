@@ -5,6 +5,7 @@ import moment from "moment";
 import { rawData } from "../data/covidData";
 import { getDataByDate } from "../services/covidService";
 import ProvincialStatsCards from "../components/ProvincialStatsCards";
+import styles from "../styles/LandingPage.module.css"
 
 export default function Home(data) {
   const covidData = data.data;
@@ -30,7 +31,7 @@ export default function Home(data) {
       <Head>
         <title> Covid-Stats</title>
       </Head>
-      <h1> Covid-19 Statistics</h1>
+      <h4 className={styles.titleText}> Covid-19 Statistics</h4>
 
       <ProvincialStatsCards />
 

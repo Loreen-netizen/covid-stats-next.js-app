@@ -1,20 +1,19 @@
+import { Grow } from "@material-ui/core";
 import styles from "../../styles/ProvincialStatsCards.module.css";
 import { nationalCasesToday } from "../../services/covidService";
 
-
 export const ProvincialStatsCards = () => {
- const nationalCasesCount = nationalCasesToday()
+  const nationalCasesCount = nationalCasesToday();
 
- 
   return (
     <div>
       <div className={styles.grid}>
-        <a href="https://nextjs.org/docs" className={styles.card}>
-          <h2>National Covid Statistics Today </h2>
-          <h1>
-           {nationalCasesCount}
-          </h1>
-        </a>
+        <Grow in timeout={1000}>
+          <div className={styles.card}>
+            <h4 className={styles.cardh4}>National Covid Statistics Today </h4>
+            <p className={styles.cardP}>{nationalCasesCount}</p>
+          </div>
+        </Grow>
       </div>
     </div>
   );
