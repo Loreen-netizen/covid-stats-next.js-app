@@ -212,14 +212,6 @@ export const nationalCasesToday = () => {
   return numberOfNationalCases;
 };
 
-export const nationalRecoveriesToday = () => {
-  const numberOfNationalRecoveries = 0;
-  return numberOfNationalRecoveries;
-};
-export const nationalDeathsToday = () => {
-  const numberOfNationalDeaths = 0;
-  return numberOfNationalDeaths;
-};
 
 const calculateActiveCases = (cases, recoveries, deaths) => {
   const activeCasesCount = cases - recoveries - deaths;

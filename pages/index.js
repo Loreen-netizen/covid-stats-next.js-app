@@ -5,7 +5,7 @@ import moment from "moment";
 import { rawData } from "../data/covidData";
 import { getDataByDate } from "../services/covidService";
 import ProvincialStatsCards from "../components/ProvincialStatsCards";
-import styles from "../styles/LandingPage.module.css"
+import styles from "../styles/LandingPage.module.css";
 
 export default function Home(data) {
   const covidData = data.data;
@@ -51,11 +51,7 @@ export default function Home(data) {
 }
 
 export const getStaticProps = async () => {
-  // const response = await fetch("https://corona-stats.mobi/api/json.2.0.php?key=UTSiraH8NBz3JblhOcVI")
   const data = rawData;
-
-  // );
-  // const data = await response.json();
 
   return {
     props: {
