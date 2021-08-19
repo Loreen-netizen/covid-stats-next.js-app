@@ -20,9 +20,6 @@ export default function Home(data) {
   useEffect(() => {
     const timeStamp = new Date(selectedDate).getTime();
     const tempRows = getDataByDate(timeStamp);
-  
-
-    const tempTimestamp = moment(selectedDate, "YYYY-MM-DD")
     
     setRows(tempRows);
   }, [selectedDate]);
@@ -48,10 +45,11 @@ export default function Home(data) {
 }
 
 export const getStaticProps = async () => {
-  // const response = await fetch(  "https://corona-stats.mobi/api/json.2.0.php?key=UTSiraH8NBz3JblhOcVI"
-  const data = rawData;
+  const response = await fetch("https://corona-stats.mobi/api/json.2.0.php?key=UTSiraH8NBz3JblhOcVI")
+  // const data = rawData;
+  
   // );
-  // const data = await response.json();
+  const data = await response.json();
 
   return {
     props: {
