@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Head from "next/head";
+
 import { rawData } from "../data/covidData";
-import Table from "../components/TableLayout/TableLayout";
+import Table from "../components/tableLayout/tableLayout";
 import { getDataByDate } from "../services/covidService";
-import NationalStatisticsCard from "../components/NationalStatisticsCard/NationalStatisticsCard";
-import styles from "../styles/LandingPage.module.css";
+import NationalStatisticsCard from "../components/nationalStatisticsCard/nationalStatisticsCard";
+import styles from "../styles/landingPage.module.css";
 
 export const getStaticProps = () => {
   const data = rawData;
