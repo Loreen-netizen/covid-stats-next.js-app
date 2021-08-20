@@ -1,5 +1,6 @@
 import { Grow } from "@material-ui/core";
-import styles from "../../styles/NationalStatisticsCard.module.css";
+
+import styles from "../../styles/nationalStatisticsCard.module.css";
 import { nationalCasesToday } from "../../services/covidService";
 
 export const NationalStatisticsCard = () => {

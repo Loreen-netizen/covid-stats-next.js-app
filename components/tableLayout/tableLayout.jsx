@@ -1,4 +1,5 @@
 import { DataGrid } from "@material-ui/data-grid";
+
 import { columnData } from "../../utils/columnsUtils";
 
 export const TableLayout = (props) => {
