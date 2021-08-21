@@ -17,8 +17,8 @@ export const getStaticProps = () => {
   };
 };
 
-export default function Home(data) {
-  const covidData = data.data;
+export default function Home(props) {
+  const covidData = props.data;
 
   const [selectedDate, setSelectedDate] = useState(
     moment().format("YYYY-MM-DD")

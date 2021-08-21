@@ -6,144 +6,110 @@ const findIndexForDayMonth = (dayMonth, dates) => {
 };
 
 export const getDataByDate = (timestamp) => {
-  const rsa = data["RSA"];
-  const gp = rsa["GP"];
-  const wc = rsa["WC"];
-  const kzn = rsa["KZN"];
-  const ec = rsa["EC"];
-  const fs = rsa["FS"];
-  const mp = rsa["MP"];
-  const lp = rsa["LP"];
-  const nw = rsa["NW"];
-  const nc = rsa["NC"];
-  const dates = rsa["Dates"];
+  const rsaObject = data["RSA"];
+  const datesArray = data.RSA["Dates"];
+  const {
+    GP: gpObject,
+    WC: wcObject,
+    KZN: kznObject,
+    EC: ecObject,
+    FS: fsObject,
+    MP: mpObject,
+    LP: lpObject,
+    NW: nwObject,
+    NC: ncObject,
+  } = data.RSA;
 
-  const dayMonth = getDayMonthFromUnixTimestamp(timestamp);
+  const dayMonthString = getDayMonthFromUnixTimestamp(timestamp);
 
   let dateIndex =
-    findIndexForDayMonth(dayMonth, dates) === -1
-      ? dates.length - 1
-      : findIndexForDayMonth(dayMonth, dates);
+    findIndexForDayMonth(dayMonthString, datesArray) === -1
+      ? datesArray.length - 1
+      : findIndexForDayMonth(dayMonthString, datesArray);
 
   const gauteng = {
     id: 1,
-    date: rsa["Dates"][dateIndex],
+    date: rsaObject["Dates"][dateIndex],
     province: "GP",
-    cases: gp["Cases"][dateIndex],
-    recoveries: gp["Recoveries"][dateIndex],
-    activeCases: calculateActiveCases(
-      gp["Cases"][dateIndex],
-      gp["Recoveries"][dateIndex],
-      gp["Deaths"][dateIndex]
-    ),
-    deaths: gp["Deaths"][dateIndex],
+    cases: gpObject["Cases"][dateIndex],
+    recoveries: gpObject["Recoveries"][dateIndex],
+    activeCases: calculateActiveCases(gpObject, dateIndex),
+    deaths: gpObject["Deaths"][dateIndex],
   };
   const westernCape = {
     id: 2,
-    date: rsa["Dates"][dateIndex],
+    date: rsaObject["Dates"][dateIndex],
     province: "WC",
-    cases: wc["Cases"][dateIndex],
-    recoveries: wc["Recoveries"][dateIndex],
-    activeCases: calculateActiveCases(
-      wc["Cases"][dateIndex],
-      wc["Recoveries"][dateIndex],
-      wc["Deaths"][dateIndex]
-    ),
-    deaths: wc["Deaths"][dateIndex],
+    cases: wcObject["Cases"][dateIndex],
+    recoveries: wcObject["Recoveries"][dateIndex],
+    activeCases: calculateActiveCases(wcObject, dateIndex),
+    deaths: wcObject["Deaths"][dateIndex],
   };
   const kwazuluNatal = {
     id: 3,
-    date: rsa["Dates"][dateIndex],
+    date: rsaObject["Dates"][dateIndex],
     province: "KZN",
-    cases: kzn["Cases"][dateIndex],
-    recoveries: kzn["Recoveries"][dateIndex],
-    activeCases: calculateActiveCases(
-      kzn["Cases"][dateIndex],
-      kzn["Recoveries"][dateIndex],
-      kzn["Deaths"][dateIndex]
-    ),
-    deaths: kzn["Deaths"][dateIndex],
+    cases: kznObject["Cases"][dateIndex],
+    recoveries: kznObject["Recoveries"][dateIndex],
+    activeCases: calculateActiveCases(kznObject, dateIndex),
+    deaths: kznObject["Deaths"][dateIndex],
   };
 
   const easternCape = {
     id: 4,
-    date: rsa["Dates"][dateIndex],
+    date: rsaObject["Dates"][dateIndex],
     province: "EC",
-    cases: ec["Cases"][dateIndex],
-    recoveries: ec["Recoveries"][dateIndex],
-    activeCases: calculateActiveCases(
-      ec["Cases"][dateIndex],
-      ec["Recoveries"][dateIndex],
-      ec["Deaths"][dateIndex]
-    ),
-    deaths: ec["Deaths"][dateIndex],
+    cases: ecObject["Cases"][dateIndex],
+    recoveries: ecObject["Recoveries"][dateIndex],
+    activeCases: calculateActiveCases(ecObject, dateIndex),
+    deaths: ecObject["Deaths"][dateIndex],
   };
   const freeState = {
     id: 5,
-    date: rsa["Dates"][dateIndex],
+    date: rsaObject["Dates"][dateIndex],
     province: "FS",
-    cases: fs["Cases"][dateIndex],
-    recoveries: fs["Recoveries"][dateIndex],
-    activeCases: calculateActiveCases(
-      fs["Cases"][dateIndex],
-      fs["Recoveries"][dateIndex],
-      fs["Deaths"][dateIndex]
-    ),
-    deaths: fs["Deaths"][dateIndex],
+    cases: fsObject["Cases"][dateIndex],
+    recoveries: fsObject["Recoveries"][dateIndex],
+    activeCases: calculateActiveCases(fsObject, dateIndex),
+    deaths: fsObject["Deaths"][dateIndex],
   };
   const mpumalanga = {
     id: 6,
-    date: rsa["Dates"][dateIndex],
+    date: rsaObject["Dates"][dateIndex],
     province: "MP",
-    cases: mp["Cases"][dateIndex],
-    recoveries: mp["Recoveries"][dateIndex],
-    activeCases: calculateActiveCases(
-      mp["Cases"][dateIndex],
-      mp["Recoveries"][dateIndex],
-      mp["Deaths"][dateIndex]
-    ),
-    deaths: mp["Deaths"][dateIndex],
+    cases: mpObject["Cases"][dateIndex],
+    recoveries: mpObject["Recoveries"][dateIndex],
+    activeCases: calculateActiveCases(mpObject, dateIndex),
+    deaths: mpObject["Deaths"][dateIndex],
   };
 
   const limpopo = {
     id: 7,
-    date: rsa["Dates"][dateIndex],
+    date: rsaObject["Dates"][dateIndex],
     province: "LP",
-    cases: lp["Cases"][dateIndex],
-    recoveries: lp["Recoveries"][dateIndex],
-    activeCases: calculateActiveCases(
-      lp["Cases"][dateIndex],
-      lp["Recoveries"][dateIndex],
-      lp["Deaths"][dateIndex]
-    ),
-    deaths: lp["Deaths"][dateIndex],
+    cases: lpObject["Cases"][dateIndex],
+    recoveries: lpObject["Recoveries"][dateIndex],
+    activeCases: calculateActiveCases(lpObject, dateIndex),
+    deaths: lpObject["Deaths"][dateIndex],
   };
 
   const northWest = {
     id: 8,
-    date: rsa["Dates"][dateIndex],
+    date: rsaObject["Dates"][dateIndex],
     province: "NW",
-    cases: nw["Cases"][dateIndex],
-    recoveries: nw["Recoveries"][dateIndex],
-    activeCases: calculateActiveCases(
-      nw["Cases"][dateIndex],
-      nw["Recoveries"][dateIndex],
-      nw["Deaths"][dateIndex]
-    ),
-    deaths: nw["Deaths"][dateIndex],
+    cases: nwObject["Cases"][dateIndex],
+    recoveries: nwObject["Recoveries"][dateIndex],
+    activeCases: calculateActiveCases(nwObject, dateIndex),
+    deaths: nwObject["Deaths"][dateIndex],
   };
   const northenCape = {
     id: 9,
-    date: rsa["Dates"][dateIndex],
+    date: rsaObject["Dates"][dateIndex],
     province: "NC",
-    cases: nc["Cases"][dateIndex],
-    recoveries: nc["Recoveries"][dateIndex],
-    activeCases: calculateActiveCases(
-      nc["Cases"][dateIndex],
-      nc["Recoveries"][dateIndex],
-      nc["Deaths"][dateIndex]
-    ),
-    deaths: nc["Deaths"][dateIndex],
+    cases: ncObject["Cases"][dateIndex],
+    recoveries: ncObject["Recoveries"][dateIndex],
+    activeCases: calculateActiveCases(ncObject, dateIndex),
+    deaths: ncObject["Deaths"][dateIndex],
   };
 
   return [
@@ -161,10 +127,10 @@ export const getDataByDate = (timestamp) => {
 
 export const nationalCasesToday = () => {
   const rsa = data["RSA"];
-  const nationalData = rsa["National"];
+  const nationalDataObject = rsa["National"];
   const todaysCases = getDataByDate(new Date());
 
-  const numberOfNationalCases = ` ${Object.keys(nationalData)[0]} = ${[
+  const numberOfNationalCases = ` ${Object.keys(nationalDataObject)[0]} = ${[
     todaysCases,
   ][0].reduce((total, item) => {
     return total + parseInt(item.cases);
@@ -172,7 +138,13 @@ export const nationalCasesToday = () => {
   return numberOfNationalCases;
 };
 
-const calculateActiveCases = (cases, recoveries, deaths) => {
-  const activeCasesCount = cases - recoveries - deaths;
+const calculateActiveCases = (provinceObject, index) => {
+  const {
+    Cases: cases,
+    Recoveries: recoveries,
+    Deaths: deaths,
+  } = provinceObject;
+  
+  const activeCasesCount = cases[index] - recoveries[index] - deaths[index];
   return activeCasesCount;
 };
